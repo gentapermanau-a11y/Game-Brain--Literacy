@@ -55,7 +55,7 @@ export const PlayerNameModal: React.FC<PlayerNameModalProps> = ({ onSaveName }) 
                   setNameInput(e.target.value);
                   setErrorMsg('');
                 }}
-                placeholder="Contoh: Genta / Ayanokoji"
+                placeholder="Contoh: Ayanokoji"
                 maxLength={20}
                 autoFocus
                 className="w-full px-4 py-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/40 text-white font-semibold placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/30 text-center text-lg tracking-wide transition-all"
