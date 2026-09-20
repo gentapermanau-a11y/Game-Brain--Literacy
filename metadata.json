@@ -1,0 +1,6 @@
+{
+  "name": "QUIZ BATTLE: BRAIN LITERACY CHALLENGE",
+  "description": "An action-packed RPG Quiz Battle web game - Brain Literacy Challenge - where answering questions unleashes attacks against 25 unique bosses across SMK subjects and difficulty tiers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

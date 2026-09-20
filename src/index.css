@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #05070D;
+    color: #F8FAFC;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-rpg {
+    font-family: 'Chakra Petch', sans-serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Animations & Keyframes */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.5deg); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.08); }
+}
+
+@keyframes orb-move-1 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(40px, 30px) scale(1.12); }
+}
+
+@keyframes orb-move-2 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-35px, -25px) scale(1.15); }
+}
+
+@keyframes grid-drift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(40px); }
+}
+
+@keyframes shine-sweep {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  35%, 100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px) rotate(-1deg); }
+  40% { transform: translateX(6px) rotate(1deg); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-5deg) scale(0.95); }
+  75% { transform: rotate(5deg) scale(1.05); }
+}
+
+@keyframes projectile-player {
+  0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+  20% { opacity: 1; transform: translate(30px, -10px) scale(1.2); }
+  80% { opacity: 1; transform: translate(140px, 0px) scale(1.4); }
+  100% { transform: translate(190px, 0px) scale(1.8); opacity: 0; }
+}
+
+@keyframes projectile-boss {
+  0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+  20% { opacity: 1; transform: translate(-30px, 10px) scale(1.2); }
+  80% { opacity: 1; transform: translate(-140px, 0px) scale(1.4); }
+  100% { transform: translate(-190px, 0px) scale(1.8); opacity: 0; }
+}
+
+@keyframes damage-float {
+  0% { transform: translateY(0) scale(0.8); opacity: 0; }
+  20% { opacity: 1; transform: translateY(-15px) scale(1.2); }
+  80% { opacity: 1; transform: translateY(-40px) scale(1); }
+  100% { opacity: 0; transform: translateY(-60px) scale(0.9); }
+}
+
+/* Pixel Art Frame-by-Frame Animations */
+@keyframes pixel-idle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes pixel-attack {
+  0% { transform: translateX(0) scale(1); }
+  30% { transform: translateX(35px) scale(1.15); }
+  70% { transform: translateX(30px) scale(1.1); }
+  100% { transform: translateX(0) scale(1); }
+}
+
+@keyframes pixel-hit {
+  0% { transform: translateX(0); filter: brightness(1); }
+  25% { transform: translateX(-15px); filter: brightness(2) drop-shadow(0 0 10px #ef4444); }
+  75% { transform: translateX(-8px); filter: brightness(1.5); }
+  100% { transform: translateX(0); filter: brightness(1); }
+}
+
+@keyframes pixel-victory {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-12px) scale(1.08); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-6px) scale(1.04); }
+}
+
+@keyframes pixel-defeat {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(8px) rotate(-10deg); opacity: 0.7; }
+}
+
+.animate-pixel-idle {
+  animation: pixel-idle 1.2s steps(2, end) infinite;
+}
+
+.animate-pixel-attack {
+  animation: pixel-attack 0.45s ease-out forwards;
+}
+
+.animate-pixel-hit {
+  animation: pixel-hit 0.35s ease-in-out forwards;
+}
+
+.animate-pixel-victory {
+  animation: pixel-victory 1s ease-in-out infinite;
+}
+
+.animate-pixel-defeat {
+  animation: pixel-defeat 0.5s ease-out forwards;
+}
+
+/* Staggered Intro Entrance Keyframes */
+@keyframes intro-fade-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-float {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 3.5s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-orb-1 {
+  animation: orb-move-1 12s ease-in-out infinite;
+}
+
+.animate-orb-2 {
+  animation: orb-move-2 15s ease-in-out infinite;
+}
+
+.animate-grid {
+  animation: grid-drift 6s linear infinite;
+}
+
+.animate-shake {
+  animation: shake 0.35s ease-in-out;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.25s ease-in-out;
+}
+
+.animate-projectile-player {
+  animation: projectile-player 0.5s ease-out forwards;
+}
+
+.animate-projectile-boss {
+  animation: projectile-boss 0.5s ease-out forwards;
+}
+
+.animate-damage-number {
+  animation: damage-float 1s ease-out forwards;
+}
+
+/* Intro Entrance Sequence Delays */
+.intro-seq-bg {
+  animation: intro-fade-slide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.intro-seq-1 {
+  animation: intro-fade-slide 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.intro-seq-2 {
+  animation: intro-fade-slide 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+.intro-seq-3 {
+  animation: intro-scale-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both;
+}
+
+.intro-seq-4 {
+  animation: intro-fade-slide 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both;
+}
+
+/* Shine effect on button */
+.btn-shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine-sweep::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 65%
+  );
+  animation: shine-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Glassmorphic custom panels & HUD */
+.glass-panel {
+  background: rgba(11, 18, 32, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-glow {
+  background: rgba(11, 18, 32, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.15), inset 0 0 15px rgba(56, 189, 248, 0.05);
+}
+
+.glass-panel-hud {
+  background: linear-gradient(135deg, rgba(11, 18, 32, 0.88), rgba(5, 7, 13, 0.94));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(37, 99, 235, 0.28);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7), 0 0 20px rgba(37, 99, 235, 0.12);
+}
